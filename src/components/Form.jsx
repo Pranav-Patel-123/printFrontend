@@ -57,7 +57,7 @@ function FormComponent({ onCancel }) {
   formData.append("metadata", JSON.stringify(metadata));
 
   try {
-    await axios.post("https://print-backend.vercel.app/api/files/upload", formData, {
+    await axios.post("https://print-backend-h1r9.vercel.app/api/files/upload", formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
     alert("Files uploaded successfully!");
