@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Homepage from "./pages/Home";
 import Login from "./pages/Login";
 import Form from "./components/Form";
@@ -41,11 +41,16 @@ const checkAuth = () => {
   return !!token; // Returns true if token exists, false otherwise
 };
 
-// Component to Parse Query Parameters
+// Component to Parse Query Parameters and Pass `uniqueId` to Form
 const FormWithQueryParam = () => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const uniqueId = params.get("uniqueId"); // Extract the uniqueId parameter
+
+  // Handle the case where uniqueId is missing
+  if (!uniqueId) {
+    return <div>Error: uniqueId is missing!</div>;
+  }
 
   return <Form uniqueId={uniqueId} />;
 };
