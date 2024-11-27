@@ -24,7 +24,7 @@ function Login() {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", loginData);
+      const response = await axios.post("https://print-backend-h1r9.vercel.app/api/auth/login", loginData);
       alert(`Login successful!`);
       localStorage.setItem("token", response.data.token); // Save the token
       localStorage.setItem("uniqueId", response.data.uniqueId); // Save the uniqueId
@@ -45,7 +45,7 @@ function Login() {
       return;
     }
     try {
-      const response = await axios.post("https://print-backend.vercel.app/api/auth/signup", {
+      const response = await axios.post("https://print-backend-h1r9.vercel.app/api/auth/signup", {
         username: signupData.username,
         password: signupData.password,
       });
