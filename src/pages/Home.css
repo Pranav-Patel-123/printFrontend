@@ -1,0 +1,24 @@
+/* Homepage Styles */
+.homepage-container {
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  padding: 20px;
+}
+
+.homepage-name {
+  text-align: center;
+  font-size: 36px;
+  margin-top: 50px;
+}
+
+.hamburger-icon {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #333;
+  cursor: pointer;
+  z-index: 1100;
+}

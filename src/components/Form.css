@@ -1,0 +1,89 @@
+.form-container {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: #2e2e2e;
+  color: #fff;
+}
+
+.file-options {
+  margin-top: 20px;
+}
+
+.file-section {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: #2e2e2e;
+}
+
+.file-name {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.remove-file-button {
+  background: none;
+  color: red;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.file-upload {
+  margin-bottom: 20px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-button,
+.cancel-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button {
+  background: #4caf50;
+  color: #fff;
+}
+
+.cancel-button {
+  background: #f44336;
+  color: #fff;
+}
+
+.submit-button:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
