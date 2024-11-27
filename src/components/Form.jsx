@@ -31,43 +31,43 @@ function FormComponent({ onCancel }) {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (!username) {
-      alert("Please enter your username.");
-      return;
-    }
+  if (!username) {
+    alert("Please enter your username.");
+    return;
+  }
 
-    const formData = new FormData();
-    formData.append("uniqueId", uniqueId);
-    formData.append("username", username);
+  const formData = new FormData();
+  formData.append("uniqueId", uniqueId);
+  formData.append("username", username);
 
-    // Append files as "files[]" in the formData
-    files.forEach((fileData) => {
-      formData.append("files[]", fileData.file);
+  // Append files as "files[]" in the formData
+  files.forEach((fileData) => {
+    formData.append("files[]", fileData.file);
+  });
+
+  // Separate metadata and append as a JSON string
+  const metadata = files.map(({ layout, pages, color, copies }) => ({
+    layout,
+    pages,
+    color,
+    copies,
+  }));
+  formData.append("metadata", JSON.stringify(metadata));
+
+  try {
+    await axios.post("https://print-backend.vercel.app/api/files/upload", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
     });
-
-    // Separate metadata and append as a JSON string
-    const metadata = files.map(({ layout, pages, color, copies }) => ({
-      layout,
-      pages,
-      color,
-      copies,
-    }));
-    formData.append("metadata", JSON.stringify(metadata));
-
-    try {
-      const response = await axios.post("https://print-backend.vercel.app/api/files/upload", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
-      alert("Files uploaded successfully!");
-      setFiles([]);
-      setUsername("");
-    } catch (error) {
-      console.error("Error uploading files:", error);
-      alert("Failed to upload files.");
-    }
-  };
+    alert("Files uploaded successfully!");
+    setFiles([]);
+    setUsername("");
+  } catch (error) {
+    console.error("Error uploading files:", error);
+    alert("Failed to upload files.");
+  }
+};
 
   const removeFile = (index) => {
     setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
