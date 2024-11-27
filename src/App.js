@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import "./Form.css";
 import axios from "axios";
 
 function FormComponent({ onCancel }) {
