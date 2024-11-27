@@ -9,9 +9,10 @@ function App() {
     <Router>
       <div style={styles.appContainer}>
         <Routes>
+    <Route path="/form" element={<FormWithQueryParam />} />
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<PrivateRoute><Homepage /></PrivateRoute>} />
-          <Route path="/form" element={<FormWithQueryParam />} />
+          
         </Routes>
       </div>
     </Router>
