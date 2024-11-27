@@ -13,7 +13,7 @@ function TableComponent({ uniqueId }) {
         setIsLoading(true);
         console.log(`Fetching files for uniqueId: ${uniqueId}`);
         const response = await axios.get(
-          `https://print-backend-h1r9.vercel.app/api/displayfiles/${uniqueId}/files`
+          `https://print-backend.vercel.app/api/displayfiles/${uniqueId}/files`
         );
         console.log("Files fetched:", response.data.files);
         setFilesData(response.data.files || {});
